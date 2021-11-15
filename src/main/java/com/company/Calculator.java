@@ -2,7 +2,7 @@ package com.company;
 import java.util.Stack;
 
 /**
- * A calculator class that can calculate the value of expressions
+ * It can calculate the value of expressions
  * @author Ivanova Anna
  */
 public class Calculator {
