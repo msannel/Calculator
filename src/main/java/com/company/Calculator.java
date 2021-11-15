@@ -27,6 +27,7 @@ public class Calculator {
         expression = str;
     }
 
+    
     /**
      * The shell of the main method _calculate, calls the main method to count the expression
      *
