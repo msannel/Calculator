@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +8,6 @@ public class Main {
         boolean boo = true;
         Scanner scan = new Scanner(System.in);
         while (boo) {
-
             System.out.println("Напишите математическое выражение (для завершения работы напишите 0): ");
             s = scan.nextLine();
             if (s.equals("0"))
@@ -17,4 +17,5 @@ public class Main {
         }
         System.out.println("До свидания!");
     }
+
 }

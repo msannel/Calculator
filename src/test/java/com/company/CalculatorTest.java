@@ -1,58 +1,55 @@
 package com.company;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorTest {
 
     @Test
-    void evaluate_Minus() throws Exception {
+    void calculate_Minus() throws Exception {
+        assertEquals(2, new Calculator().calculate("4-2"), 0.000000001);
+    }
+
+    @Test
+    void calculate_UnaryMinusAllSituation() throws Exception {
         assertEquals(2, new Calculator().calculate("-(-2)"), 0.000000001);
     }
 
     @Test
-    void evaluate_UnaryMinusAllSituation() throws Exception {
-        assertEquals(2, new Calculator().calculate("-(-2)"), 0.000000001);
-    }
-
-    @Test
-    void evaluate_Priority() throws Exception {
+    void calculate_Priority() throws Exception {
         assertEquals(4.5, new Calculator().calculate("4-2+2*2-3/(-70-9*4*(2-4))"), 0.000000001);
     }
 
     @Test
-    void evaluate_Plus() throws Exception {
+    void calculate_Plus() throws Exception {
         assertEquals(12, new Calculator().calculate("2+4+6"), 0.000000001);
     }
 
     @Test
-    void evaluate_PlusWithUnaryPlus() throws Exception {
+    void calculate_PlusWithUnaryPlus() throws Exception {
         assertEquals(8, new Calculator().calculate("2+(+6)"), 0.000000001);
     }
 
     @Test
-    void evaluate_Multiply() throws Exception {
-        assertEquals(18, new Calculator().calculate("3*6"), 0.000000001);
-        assertEquals(0, new Calculator().calculate("0*3*9"), 0.01);
+    void calculate_Multiply() throws Exception {
         assertEquals(60, new Calculator().calculate("2*3*10"), 0.01);
     }
 
     @Test
-    void evaluate_MultiplyByZero() throws Exception {
+    void calculate_MultiplyByZero() throws Exception {
         assertEquals(0, new Calculator().calculate("0*3*9"), 0.01);
     }
 
     @Test
-    void evaluate_Division() throws Exception {
+    void calculate_Division() throws Exception {
         assertEquals(0.666, new Calculator().calculate("2/3"), 0.01);
     }
 
     @Test
-    void evaluate_DivisionByZero() {
+    void calculate_DivisionByZero() {
 
-       Exception ex = assertThrows(Exception.class, () -> {
+        Exception ex = assertThrows(Exception.class, () -> {
             new Calculator().calculate("1/0");
         });
 
@@ -62,7 +59,7 @@ class CalculatorTest {
     }
 
     @Test
-    void evaluate_MoreThanOneDot() {
+    void calculate_MoreThanOneDot() {
         Exception ex = assertThrows(Exception.class, () -> {
             new Calculator().calculate("2+2.1..3-1");
         });
@@ -73,7 +70,7 @@ class CalculatorTest {
     }
 
     @Test
-    void evaluate_OpeningBracketMissing() {
+    void calculate_OpeningBracketMissing() {
         Exception ex = assertThrows(Exception.class, () -> {
             new Calculator().calculate("3-(2+23");
         });
@@ -84,7 +81,7 @@ class CalculatorTest {
     }
 
     @Test
-    void evaluate_ClosedBracketMissing() {
+    void calculate_ClosedBracketMissing() {
         Exception ex = assertThrows(Exception.class, () -> {
             new Calculator().calculate("3-2)+23");
         });
@@ -95,7 +92,7 @@ class CalculatorTest {
     }
 
     @Test
-    void evaluate_MoreThanOneOperatorInRow() {
+    void calculate_MoreThanOneOperatorInRow() {
         Exception ex = assertThrows(Exception.class, () -> {
             new Calculator().calculate("3-2-+23");
         });
@@ -106,7 +103,7 @@ class CalculatorTest {
     }
 
     @Test
-    void evaluate_OperatorMissing() {
+    void calculate_OperatorMissing() {
         Exception ex = assertThrows(Exception.class, () -> {
             new Calculator().calculate("3(2+23)");
         });
