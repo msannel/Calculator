@@ -1,8 +1,6 @@
 package com.company;
 import java.util.Stack;
 
-//link to github: 
-
 /**
  * A calculator class that can calculate the value of expressions
  * @author Ivanova Anna
