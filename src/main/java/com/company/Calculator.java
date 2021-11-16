@@ -64,18 +64,18 @@ public class Calculator {
         if (isOperator(expression.charAt(expression.length() - 1)))
             expression = expression.substring(0, expression.length() - 1);
 
-        //if (!checkToInvalidSymbols(expression)) throw new Exception("Invalid symbol(s) in string");
+        if (!checkToInvalidSymbols(expression)) throw new Exception("Invalid symbol(s) in string");
         // OR
 
-        if (!checkToInvalidSymbols(expression)) {
-            StringBuilder str = new StringBuilder();
-            for (int i = 0; i < expression.length(); i++) {
-                if (!((expression.charAt(i) >= '0' && expression.charAt(i) <= '9') || expression.charAt(i) == '.' || isOperator(expression.charAt(i)) || expression.charAt(i) == '(' || expression.charAt(i) == ')'))
-                    continue;
-                str.append(expression.charAt(i));
-            }
-            expression = str.toString();
-        }
+//        if (!checkToInvalidSymbols(expression)) {
+//            StringBuilder str = new StringBuilder();
+//            for (int i = 0; i < expression.length(); i++) {
+//                if (!((expression.charAt(i) >= '0' && expression.charAt(i) <= '9') || expression.charAt(i) == '.' || isOperator(expression.charAt(i)) || expression.charAt(i) == '(' || expression.charAt(i) == ')'))
+//                    continue;
+//                str.append(expression.charAt(i));
+//            }
+//            expression = str.toString();
+//        }
 
         expression = fixUnaryOperators(expression);
         char[] tokens = expression.toCharArray();
